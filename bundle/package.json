@@ -1,0 +1,26 @@
+{
+  "name": "@local/dsh-uitest",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "description": "WinForms/Win32 应用的 UIA 自动化测试桥：结构化控件树优先，OCR/坐标仅作兜底。",
+  "exports": {
+    ".": "./host.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "host.js",
+    "sidecar/uitestd.py",
+    "sidecar/uia_once.ps1",
+    "sidecar/ocr_once.ps1",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

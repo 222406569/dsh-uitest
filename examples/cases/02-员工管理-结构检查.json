@@ -1,0 +1,48 @@
+{
+  "name": "员工管理-结构检查（自动打开窗口）",
+  "window": { "title": "仓库管理系统" },
+  "steps": [
+    { "type": "wait", "id": "menuStrip", "state": "exists", "timeoutMs": 8000 },
+    {
+      "type": "invoke",
+      "name": "系统管理",
+      "controlType": "MenuItem",
+      "expect": { "name": "员工管理" },
+      "waitMs": 800
+    },
+    {
+      "type": "invoke",
+      "name": "员工管理",
+      "controlType": "MenuItem",
+      "waitMs": 1500
+    },
+    { "type": "wait", "window": { "title": "员工管理" }, "id": "dgvEmployees", "timeoutMs": 8000 },
+    {
+      "type": "assert",
+      "window": { "title": "员工管理" },
+      "checks": [
+        { "id": "dgvEmployees", "type": "DataGrid", "expect": { "exists": true } },
+        { "name": "工号", "type": "Header", "expect": { "exists": true } },
+        { "name": "用户名", "type": "Header", "expect": { "exists": true } },
+        { "name": "姓名", "type": "Header", "expect": { "exists": true } },
+        { "name": "电话", "type": "Header", "expect": { "exists": true } },
+        { "name": "启用", "type": "Header", "expect": { "exists": true } },
+        { "id": "btnAdd", "type": "Button", "expect": { "exists": true, "enabled": true, "name": "新增" } },
+        { "id": "btnEdit", "type": "Button", "expect": { "exists": true, "name": "编辑" } },
+        { "id": "btnResetPassword", "type": "Button", "expect": { "exists": true, "name": "重置密码" } },
+        { "id": "btnToggleActive", "type": "Button", "expect": { "exists": true, "name": "启用/停用" } },
+        { "id": "btnAssignRoles", "type": "Button", "expect": { "exists": true, "name": "分配角色" } },
+        { "id": "btnRefresh", "type": "Button", "expect": { "exists": true, "name": "刷新" } },
+        { "id": "btnNotExist", "expect": { "exists": false } }
+      ]
+    },
+    {
+      "type": "invoke",
+      "window": { "title": "员工管理" },
+      "id": "btnRefresh",
+      "controlType": "Button",
+      "expect": { "type": "DataItem", "expect": { "count": 4 } },
+      "waitMs": 1200
+    }
+  ]
+}

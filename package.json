@@ -1,0 +1,24 @@
+{
+  "name": "dsh-uitest",
+  "version": "0.4.0",
+  "private": false,
+  "description": "DSH 插件：WinForms/Win32 应用的 UIA 自动化测试桥（结构化控件树优先，OCR 兜底），支持用例编排、批量回归与 CI 命令行。",
+  "type": "module",
+  "bin": {
+    "dsh-uitest-run": "bin/run-cases.mjs"
+  },
+  "scripts": {
+    "cases": "node bin/run-cases.mjs --dir examples/cases"
+  },
+  "files": [
+    "bundle",
+    "bin",
+    "examples",
+    "install.ps1",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

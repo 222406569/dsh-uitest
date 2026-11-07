@@ -1,0 +1,19 @@
+{
+  "name": "主界面-菜单与状态栏",
+  "window": { "title": "仓库管理系统" },
+  "steps": [
+    { "type": "wait", "id": "menuStrip", "state": "exists", "timeoutMs": 8000 },
+    {
+      "type": "assert",
+      "checks": [
+        { "id": "menuStrip", "type": "MenuBar", "expect": { "exists": true } },
+        { "name": "仓储管理", "type": "MenuItem", "expect": { "exists": true } },
+        { "name": "系统管理", "type": "MenuItem", "expect": { "exists": true } },
+        { "name": "系统", "type": "MenuItem", "expect": { "exists": true } },
+        { "id": "statusStrip", "type": "StatusBar", "expect": { "exists": true } },
+        { "name": "当前用户", "expect": { "exists": true } },
+        { "id": "btnNotExist", "expect": { "exists": false } }
+      ]
+    }
+  ]
+}

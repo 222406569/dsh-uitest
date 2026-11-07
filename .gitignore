@@ -1,0 +1,25 @@
+# 运行产物（证据包、截图、日志）
+runs/
+*.log
+
+# 开发期临时脚本（不入库）
+/*.py
+/uia_*.ps1
+/ocr_crop.ps1
+/smoke.mjs
+/test_*.mjs
+/tree.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 构建产物
+/uitest-build/
+/dist/
+
+# 系统
+Thumbs.db
+desktop.ini
+.DS_Store

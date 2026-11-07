@@ -1,0 +1,15 @@
+{
+  "name": "员工管理-OCR兜底链路",
+  "window": { "title": "员工管理" },
+  "steps": [
+    { "type": "wait", "id": "dgvEmployees", "state": "exists", "timeoutMs": 8000 },
+    { "type": "ocr", "save": "texts" },
+    {
+      "type": "click_text",
+      "text": "刷新",
+      "expect": { "type": "DataItem", "expect": { "count": 4 } },
+      "waitMs": 1000
+    },
+    { "type": "assert", "checks": [{ "id": "dgvEmployees", "expect": { "exists": true } }] }
+  ]
+}

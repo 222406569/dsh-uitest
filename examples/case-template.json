@@ -1,0 +1,19 @@
+{
+  "_说明": "用例模板：复制一份改 window / checks 即可。字段语义见 README。",
+  "name": "示例-用例模板",
+  "window": { "title": "你的窗口标题片段" },
+  "stopOnFail": true,
+  "steps": [
+    { "type": "wait", "id": "某个控件AutomationId", "state": "exists", "timeoutMs": 8000 },
+    {
+      "type": "assert",
+      "checks": [
+        { "id": "btnSave", "type": "Button", "expect": { "exists": true, "enabled": true } },
+        { "name": "保存", "type": "Button", "expect": { "exists": true } },
+        { "id": "本不该存在的控件", "expect": { "exists": false } }
+      ]
+    },
+    { "type": "invoke", "id": "btnSave", "controlType": "Button", "expect": { "id": "某个结果控件", "expect": { "exists": true } }, "waitMs": 1200 },
+    { "type": "screenshot", "label": "保存后" }
+  ]
+}
